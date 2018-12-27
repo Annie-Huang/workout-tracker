@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-performance-targets-modal',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class PerformanceTargetsModalComponent implements OnInit {
   public perfTargets: any = {};
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }
 
+  save() {
+    this.activeModal.close(this.perfTargets);
+  }
 }
