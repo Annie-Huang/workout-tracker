@@ -54,7 +54,7 @@ D:\react\workout-tracker\src\app\services>npm install @ng-bootstrap/ng-bootstrap
 D:\react\workout-tracker\src\app\services>ng g s DateStringAdapter
 D:\react\workout-tracker>ng g c PerformanceTargetsModal
 
-
+D:\react\workout-tracker>ng g c Admin
 
 
 
