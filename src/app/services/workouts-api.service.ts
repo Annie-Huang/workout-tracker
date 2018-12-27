@@ -36,4 +36,8 @@ export class WorkoutsApiService {
   deleteWorkout(id) {
     return this.http.delete(`${this.baseUrl}/workouts/${id}`);
   }
+
+  getLocations() {
+    return this.http.get<any[]>(`${this.baseUrl}/locations`);
+  }
 }
