@@ -48,6 +48,13 @@
         </div>
 
         <div class="form-group row">
+          <label class="col-form-label col-sm-2">Quality:</label>
+          <div class="col-sm-3 mt-sm-2">
+            <ngb-rating [(rate)]="workout.rating" [readonly]="false" [max]="5"></ngb-rating>
+          </div>
+        </div>
+
+        <div class="form-group row">
           <label class="col-form-label col-sm-2">Distance:</label>
           <div class="col-sm-3">
             <input type="text" class="form-control" name="wdistance" [(ngModel)]="workout.distance" />
