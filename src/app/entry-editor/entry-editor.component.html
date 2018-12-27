@@ -68,8 +68,12 @@
         <div class="form-group row">
           <label class="col-form-label col-sm-2">Location:</label>
           <div class="col-sm-3">
-            <input type="text" class="form-control" name="wlocation" [(ngModel)]="workout.location"
-                   [ngbTypeahead]="locationsSearch" [resultFormatter]="locationsFormatter" [inputFormatter]="locationsFormatter"/>
+            <!-- client side flitering -->
+            <!--<input type="text" class="form-control" name="wlocation" [(ngModel)]="workout.location"-->
+                   <!--[ngbTypeahead]="locationsSearch" [resultFormatter]="locationsFormatter" [inputFormatter]="locationsFormatter"/>-->
+
+            <!-- server side flitering -->
+            <input type="text" class="form-control" name="wlocation" [(ngModel)]="workout.location" [ngbTypeahead]="locationsSearch"/>
           </div>
         </div>
 

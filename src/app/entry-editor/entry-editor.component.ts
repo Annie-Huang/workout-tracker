@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { WorkoutsApiService } from '../services/workouts-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, map, tap, switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-entry-editor',
@@ -25,6 +26,7 @@ export class EntryEditorComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Client side flitering
     this.api.getLocations().subscribe(data => this.locations = data);
 
     this.router.params.subscribe(params => {
@@ -40,12 +42,27 @@ export class EntryEditorComponent implements OnInit {
     });
   }
 
+  // // Client side flitering
+  // locationsSearch = (text$: Observable<string>) =>
+  //   text$.pipe(
+  //     debounceTime(200),  // wait for user to stop typing for 200 ms.
+  //     distinctUntilChanged(),
+  //     map(term => term.length < 2 ? []
+  //       : this.locations.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+  //   );
+
+  // Server side flitering
+  // Useful when the list is huge, then better to client side flitering
   locationsSearch = (text$: Observable<string>) =>
     text$.pipe(
-      debounceTime(200),  // wait for user to stop typing for 200 ms.
+      debounceTime(200),
       distinctUntilChanged(),
-      map(term => term.length < 2 ? []
-        : this.locations.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+      tap(() => this.loading = true),   // meaning the next thing i want you to do is to set loading = true.
+      switchMap(term => this.api.searchLocations(term)),
+      // Do a map for name property, otherwise it will save the entire object of {"id": 3, "name": "Neighborhood 1 mile course"}
+      // when user clicks save
+      map(locations => _.map(locations, 'name')),
+      tap(() => this.loading = false)   // once it's completing i want you to set loading = false
     );
 
   locationsFormatter = (result) => result.name;
