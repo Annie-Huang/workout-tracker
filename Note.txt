@@ -3,16 +3,27 @@ https://github.com/ng-bootstrap/ng-bootstrap
 https://github.com/ng-bootstrap/ng-bootstrap#getting-help
 https://stackoverflow.com/questions/tagged/ng-bootstrap
 https://app.pluralsight.com/library/courses/bootstrap-4-developer
+https://bootswatch.com/
+https://bootswatch.com/superhero/
 
 
 https://github.com/smichelotti/ng-bootstrap-course
+
+D:\react\ng-bootstrap-course
 https://github.com/Annie-Huang/ng-bootstrap-course
+https://github.com/Annie-Huang/workout-tracker
+
+==================================================
 
 
+D:\react>ng new workout-tracker --routing
+? Which stylesheet format would you like to use? CSS
+....
 
-
-
-
+D:\react\workout-tracker>ng g c Home
+D:\react\workout-tracker>ng g c Workouts
+D:\react\workout-tracker>ng g c EntryEditor
+D:\react\workout-tracker>ng g c NavMenu
 
 
 
