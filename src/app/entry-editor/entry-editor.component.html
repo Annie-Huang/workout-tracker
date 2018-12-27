@@ -43,7 +43,7 @@
         <div class="form-group row">
           <label class="col-form-label col-sm-2">Time:</label>
           <div class="col-sm-3">
-            <ngb-timepicker name="tp" [(ngModel)]="workout.time"></ngb-timepicker>
+            <ngb-timepicker name="tp" [(ngModel)]="workout.time" [meridian]="true" [seconds]="false" [spinners]="true" [minuteStep]="15"></ngb-timepicker>
           </div>
         </div>
 
