@@ -3,6 +3,7 @@ import { WorkoutsApiService } from '../services/workouts-api.service';
 import * as _ from 'lodash';
 import {NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import {forkJoin} from 'rxjs';
+import {PerformanceTargetsModalComponent} from '../performance-targets-modal/performance-targets-modal.component';
 
 @Component({
   selector: 'app-workouts',
@@ -44,4 +45,13 @@ export class WorkoutsComponent implements OnInit {
     }, reason => console.log(`Dismissed: ${reason}`));
   }
 
+  showPerfTargets() {
+    const modalRef = this.modal.open(PerformanceTargetsModalComponent);
+    modalRef.result.then(result => {
+      console.log(result);
+      // TODO: save here
+    }, reason => {
+      console.log(`Dismissed reason: ${reason}`);
+    });
+  }
 }

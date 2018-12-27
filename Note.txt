@@ -51,7 +51,8 @@ D:\react\workout-tracker\src\app\services>ng g s WorkoutsApi
 D:\react\workout-tracker\src\app\services>npm install lodash ngx-loading --save
 D:\react\workout-tracker\src\app\services>npm install @ng-bootstrap/ng-bootstrap@3.3.0 --save		It was 4.0.1 when i start working on this exercise
 
-
+D:\react\workout-tracker\src\app\services>ng g s DateStringAdapter
+D:\react\workout-tracker>ng g c PerformanceTargetsModal
 
 
 

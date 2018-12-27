@@ -6,7 +6,7 @@
       <h4 class="card-title">Workouts</h4>
     </div>
     <div class="card-body">
-      <button class="btn btn-sm btn-primary mr-sm-2">Set Performance Targets</button>
+      <button class="btn btn-sm btn-primary mr-sm-2" (click)="showPerfTargets()">Set Performance Targets</button>
 
       <button class="btn btn-sm" [ngClass]="isCollapsed ? 'btn-info' : 'btn-outline-info'" (click)="isCollapsed = !isCollapsed">?</button>
       <div class="mt-sm-2" [ngbCollapse]="!isCollapsed">
