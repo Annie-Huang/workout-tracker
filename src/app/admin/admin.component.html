@@ -16,11 +16,12 @@
       <div class="row">
         <div class="mainImageContainer">
           <ngb-carousel>
-            <ng-template ngbSlide>
-              <img src="assets/images/bike-1.png">
-            </ng-template>
-            <ng-template ngbSlide>
-              <img src="assets/images/row-1.png">
+            <ng-template ngbSlide *ngFor="let img of images">
+              <img [src]="img.src">
+              <div class="carousel-caption">
+                <h3>{{img.title}}</h3>
+                <p>cool sub-title</p>
+              </div>
             </ng-template>
           </ngb-carousel>
         </div>
