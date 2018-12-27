@@ -23,7 +23,7 @@
     <!--</ngb-panel>-->
   <!--</ngb-accordion>-->
 
-  <ngb-accordion type="success" closeOthers="true" activeIds="panel1" #acc="ngbAccordion">
+  <ngb-accordion type="success" closeOthers="true" activeIds="panel1" #acc="ngbAccordion" (panelChange)="beforeChange($event)">
 
     <ngb-panel id="panel1">
       <ng-template ngbPanelTitle>
@@ -32,7 +32,8 @@
       <ng-template ngbPanelContent>
         <p>Welcome to Workout Tracker!</p>
         <p class="float-right">
-          <button class="btn btn-info" (click)="acc.toggle('panel2')">Next</button>
+          <!--<button class="btn btn-info" (click)="acc.toggle('panel2')">Next</button>-->
+          <button class="btn btn-info" (click)="nextButton(1)">Next</button>
         </p>
       </ng-template>
     </ngb-panel>
@@ -41,7 +42,8 @@
       <ng-template ngbPanelContent>
         <p>Click on Workouts in the menu to start tracking your progress.</p>
         <p class="float-right">
-          <button class="btn btn-info" (click)="acc.toggle('panel3')">Next</button>
+          <!--<button class="btn btn-info" (click)="acc.toggle('panel3')">Next</button>-->
+          <button class="btn btn-info" (click)="nextButton(2)">Next</button>
         </p>
       </ng-template>
     </ngb-panel>
