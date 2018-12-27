@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutsApiService } from '../services/workouts-api.service';
 import * as _ from 'lodash';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-workouts',
@@ -27,7 +27,8 @@ export class WorkoutsComponent implements OnInit {
   //   this.api.deleteWorkout(id).subscribe(data => _.remove(this.workouts, { id: id }));
   // }
   deleteWorkout(id, deleteModal) {
-    this.modal.open(deleteModal).result.then(result => {
+    let options: NgbModalOptions = { size: 'sm' };
+    this.modal.open(deleteModal, options).result.then(result => {
       this.api.deleteWorkout(id).subscribe(data => _.remove(this.workouts, { id: id }));
     }, reason => console.log(`Dismissed: ${reason}`));
   }
