@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutsApiService } from '../services/workouts-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-entry-editor',
@@ -11,11 +12,12 @@ export class EntryEditorComponent implements OnInit {
   public workout: any = {};
   public loading = false;
   public startDate: any;
+  public maxDate: NgbDateStruct;
 
-  constructor(
-    private router: ActivatedRoute,
-    private nav: Router,
-    private api: WorkoutsApiService) { }
+  constructor(private router: ActivatedRoute, private nav: Router, private api: WorkoutsApiService) {
+    const today = new Date();
+    this.maxDate = NgbDate.from({year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate()});
+  }
 
   ngOnInit() {
     this.router.params.subscribe(params => {
