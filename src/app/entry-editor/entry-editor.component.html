@@ -26,7 +26,8 @@
         <div class="form-group row">
           <label class="col-form-label col-sm-2">Date:</label>
           <div class="col-sm-3">
-            <input type="text" class="form-control" name="wdate" [(ngModel)]="workout.date" />
+            <!--<input type="text" class="form-control" name="wdate" [(ngModel)]="workout.date" />-->
+            <ngb-datepicker #d name="wdate" [(ngModel)]="workout.date"></ngb-datepicker>
           </div>
         </div>
 
