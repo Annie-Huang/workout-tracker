@@ -5,7 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 // Third party imports
 import { NgxLoadingModule } from 'ngx-loading';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// App imports
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -27,7 +29,8 @@ import {WorkoutsApiService} from './services/workouts-api.service';
     AppRoutingModule,
     HttpClientModule,
     NgxLoadingModule.forRoot({}),
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot()
   ],
   providers: [
     WorkoutsApiService
