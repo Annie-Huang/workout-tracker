@@ -44,7 +44,7 @@
           <td>{{entry.distance}}</td>
           <td>
             <a [routerLink]="['/workouts', entry.id]" class="btn btn-info btn-sm mr-2">Edit</a>
-            <button class="btn btn-danger btn-sm" (click)="deleteWorkout(entry.id)">Delete</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteWorkout(entry.id, deleteModal)">Delete</button>
           </td>
 
         </tr>
@@ -54,5 +54,17 @@
     </div>
   </div>
 
+  <ng-template #deleteModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Delete?</h4>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to delete?</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success" (click)="modal.close()">Yes (Delete)</button>
+      <button class="btn btn-danger" (click)="modal.dismiss()">No</button>
+    </div>
+  </ng-template>
 
 </div>
