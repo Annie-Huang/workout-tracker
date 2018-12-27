@@ -7,19 +7,49 @@
     </p>
   </div>
 
-  <!--<ngb-accordion closeOthers="true" type="success">-->
-  <ngb-accordion type="success" activeIds="panel1,panel2" >
+  <!--&lt;!&ndash;<ngb-accordion closeOthers="true" type="success">&ndash;&gt;-->
+  <!--<ngb-accordion type="success" activeIds="panel1,panel2" >-->
+    <!--<ngb-panel id="panel1">-->
+      <!--<ng-template ngbPanelTitle>-->
+        <!--<p class="font-weight-bold">First</p>-->
+      <!--</ng-template>-->
+      <!--<ng-template ngbPanelContent>First Panel</ng-template>-->
+    <!--</ngb-panel>-->
+    <!--<ngb-panel title="Second" id="panel2">-->
+      <!--<ng-template ngbPanelContent>Second Panel</ng-template>-->
+    <!--</ngb-panel>-->
+    <!--<ngb-panel title="Third" id="panel3">-->
+      <!--<ng-template ngbPanelContent>Third Panel</ng-template>-->
+    <!--</ngb-panel>-->
+  <!--</ngb-accordion>-->
+
+  <ngb-accordion type="success" closeOthers="true" activeIds="panel1" #acc="ngbAccordion">
+
     <ngb-panel id="panel1">
       <ng-template ngbPanelTitle>
-        <p class="font-weight-bold">First</p>
+        <p class="font-weight-bold">Welcome</p>
       </ng-template>
-      <ng-template ngbPanelContent>First Panel</ng-template>
+      <ng-template ngbPanelContent>
+        <p>Welcome to Workout Tracker!</p>
+        <p class="float-right">
+          <button class="btn btn-info" (click)="acc.toggle('panel2')">Next</button>
+        </p>
+      </ng-template>
     </ngb-panel>
-    <ngb-panel title="Second" id="panel2">
-      <ng-template ngbPanelContent>Second Panel</ng-template>
+
+    <ngb-panel title="How To" id="panel2">
+      <ng-template ngbPanelContent>
+        <p>Click on Workouts in the menu to start tracking your progress.</p>
+        <p class="float-right">
+          <button class="btn btn-info" (click)="acc.toggle('panel3')">Next</button>
+        </p>
+      </ng-template>
     </ngb-panel>
-    <ngb-panel title="Third" id="panel3">
-      <ng-template ngbPanelContent>Third Panel</ng-template>
+
+    <ngb-panel title="Enjoy!" id="panel3">
+      <ng-template ngbPanelContent>
+        <p>We hope you enjoy Workout Tracker!</p>
+      </ng-template>
     </ngb-panel>
   </ngb-accordion>
 </div>
