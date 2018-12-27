@@ -7,8 +7,11 @@
     </p>
   </div>
 
-  <ngb-accordion>
-    <ngb-panel title="First">
+  <ngb-accordion closeOther="true" type="success">
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <p class="font-weight-bold">First</p>
+      </ng-template>
       <ng-template ngbPanelContent>First Panel</ng-template>
     </ngb-panel>
     <ngb-panel title="Second">
