@@ -46,6 +46,8 @@ D:\react\workout-tracker>ng g c Workouts
 D:\react\workout-tracker>ng g c EntryEditor
 D:\react\workout-tracker>ng g c NavMenu
 
+D:\react\workout-tracker\src\app\services>ng g s WorkoutsApi
+D:\react\workout-tracker\src\app\services>npm install lodash ngx-loading --save
 
 
 
