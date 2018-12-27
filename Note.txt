@@ -15,7 +15,24 @@ https://github.com/Annie-Huang/ng-bootstrap-course
 https://github.com/Annie-Huang/workout-tracker
 
 
+==================================================
+
+D:\react\workout-tracker>npm install -g json-server
+D:\react\workout-tracker\data>json-server db.json
+  Resources
+  http://localhost:3000/performanceTargets
+  http://localhost:3000/workouts
+  http://localhost:3000/locations
+  Home
+  http://localhost:3000
+You can use postman to:
+http://localhost:3000/workouts
+http://localhost:3000/workouts/2
+
+
 D:\react\workout-tracker>ng serve
+http://localhost:4200/
+
 
 ==================================================
 
