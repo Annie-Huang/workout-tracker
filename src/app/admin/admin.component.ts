@@ -12,4 +12,10 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   }
 
+  beforeChange($event) {
+    console.log('before tab change', $event);
+    if ($event.nextId === 'tabImages') {
+      // $event.preventDefault();
+    }
+  }
 }

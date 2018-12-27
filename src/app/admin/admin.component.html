@@ -3,7 +3,7 @@
 <!-- justify value can be start(default), center, end, fill(not equally divided), justified-->
 <!--<ngb-tabset justify="fill">-->
 
-<ngb-tabset justify="justified" orientation="horizontal" #ts="ngbTabset">
+<ngb-tabset justify="justified" orientation="horizontal" #ts="ngbTabset" (tabChange)="beforeChange($event)">
   <ngb-tab title="Locations" id="tabLocations">
     <ng-template ngbTabContent>Location Tab</ng-template>
   </ngb-tab>
