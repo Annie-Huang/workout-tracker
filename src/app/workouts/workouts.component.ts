@@ -47,9 +47,14 @@ export class WorkoutsComponent implements OnInit {
 
   showPerfTargets() {
     const modalRef = this.modal.open(PerformanceTargetsModalComponent);
+    modalRef.componentInstance.perfTargets = this.perfTargets;
     modalRef.result.then(result => {
       console.log(result);
-      // TODO: save here
+      this.loading = true;
+      this.api.savePerfTargets(result).subscribe(data => {
+        this.perfTargets = data;
+        this.loading = false;
+      });
     }, reason => {
       console.log(`Dismissed reason: ${reason}`);
     });
