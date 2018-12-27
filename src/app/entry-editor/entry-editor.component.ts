@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EntryEditorComponent implements OnInit {
   public workout: any = {};
   public loading = false;
+  public startDate: any;
 
   constructor(
     private router: ActivatedRoute,
@@ -22,6 +23,8 @@ export class EntryEditorComponent implements OnInit {
         this.loading = true;
         this.api.getWorkout(params.id).subscribe(data => {
           this.workout = data;
+          const d = new Date(this.workout.date);
+          this.startDate = {year: d.getFullYear(), month: d.getMonth() + 1};
           this.loading = false;
         });
       }
