@@ -15,7 +15,8 @@
 
       <div class="row">
         <div class="mainImageContainer">
-          <ngb-carousel>
+          <ngb-carousel [interval]="0" [pauseOnHover]="true" [showNavigationIndicators]="true"
+                        [showNavigationArrows]="false">
             <ng-template ngbSlide *ngFor="let img of images">
               <img [src]="img.src">
               <div class="carousel-caption">
