@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-admin',
@@ -12,6 +12,7 @@ export class AdminComponent implements OnInit {
     { src: 'assets/images/row-2.png', title: 'Row 2' },
     { src: 'assets/images/run-1.png', title: 'Run 1' }
   ];
+  @ViewChild('imgCarousel') imgCarousel: any;
 
   constructor() { }
 
@@ -23,5 +24,13 @@ export class AdminComponent implements OnInit {
     if ($event.nextId === 'tabImages') {
       // $event.preventDefault();
     }
+  }
+
+  prev() {
+    this.imgCarousel.prev();
+  }
+
+  next() {
+    this.imgCarousel.next();
   }
 }
