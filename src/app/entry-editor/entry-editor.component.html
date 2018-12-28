@@ -67,7 +67,7 @@
         </div>
 
         <div *ngIf="wdistance.invalid && (wdistance.dirty || wdistance.touched)">
-          <ngb-alert [dismissible]="true" *ngIf="!isDismissible" (close)="isDismissible = !isDismissible">
+          <ngb-alert type="custom" [dismissible]="true" *ngIf="!isDismissible" (close)="isDismissible = !isDismissible">
             Dismissible Alert
           </ngb-alert>
           <ngb-alert type="danger" *ngIf="wdistance.errors.required" [dismissible]="false">
