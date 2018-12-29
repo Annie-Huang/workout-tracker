@@ -21,7 +21,7 @@
       <hr />
       <p>
         <ngb-progressbar [value]="totals.bike" [max]="perfTargets.bike" height="20px"
-                         [type]="getPBType(totals.bike, perfTargets.bike)">
+                         [type]="getPBType(totals.bike, perfTargets.bike)" striped="true" animated="true">
           (Bike) {{totals.bike}} of {{perfTargets.bike}}
         </ngb-progressbar>
       </p>
