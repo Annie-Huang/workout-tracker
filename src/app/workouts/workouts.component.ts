@@ -69,4 +69,18 @@ export class WorkoutsComponent implements OnInit {
     this.totals = { bike: bikeTotal, row: rowTotal, run: runTotal };
     console.log('**totals', this.totals);
   }
+
+  getPBType(total: number, target: number) {
+    const pct = (total / target) * 100;
+
+    if (pct <= 25) {
+      return 'success';
+    } else if (pct > 25 && pct <= 50) {
+      return 'info';
+    } else if (pct > 50 && pct <= 75) {
+      return 'warning';
+    } else if (pct > 75) {
+      return 'danger';
+    }
+  }
 }

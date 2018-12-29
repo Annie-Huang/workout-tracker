@@ -20,17 +20,20 @@
 
       <hr />
       <p>
-        <ngb-progressbar [value]="totals.bike" [max]="perfTargets.bike" height="20px">
+        <ngb-progressbar [value]="totals.bike" [max]="perfTargets.bike" height="20px"
+                         [type]="getPBType(totals.bike, perfTargets.bike)">
           (Bike) {{totals.bike}} of {{perfTargets.bike}}
         </ngb-progressbar>
       </p>
       <p>
-        <ngb-progressbar [value]="totals.row" [max]="perfTargets.row" height="20px">
+        <ngb-progressbar [value]="totals.row" [max]="perfTargets.row" height="20px"
+                         [type]="getPBType(totals.row, perfTargets.row)">
           (Row) {{totals.row}} of {{perfTargets.row}}
         </ngb-progressbar>
       </p>
       <p>
-        <ngb-progressbar [value]="totals.run" [max]="perfTargets.run" height="20px">
+        <ngb-progressbar [value]="totals.run" [max]="perfTargets.run" height="20px"
+                         [type]="getPBType(totals.run, perfTargets.run)">
         (Run) {{totals.run}} of {{perfTargets.run}}
         </ngb-progressbar>
       </p>
