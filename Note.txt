@@ -19,6 +19,9 @@ https://github.com/Annie-Huang/workout-tracker
 
 D:\react\workout-tracker>npm install -g json-server
 D:\react\workout-tracker\data>json-server db.json
+Or
+D:\react\workout-tracker\data>json-server big-db.json
+
   Resources
   http://localhost:3000/performanceTargets
   http://localhost:3000/workouts
