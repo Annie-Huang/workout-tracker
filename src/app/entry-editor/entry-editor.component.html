@@ -20,8 +20,15 @@
               <label ngbButtonLabel class="btn-primary"><input ngbButton type="radio" value="row">Row</label>
             </div>
 
-            <button class="btn btn-outline-info btn-sm ml-sm-2" popoverTitle="Activity Type"
-                    ngbPopover="These buttons specify the type of activity">?</button>
+            <button class="btn btn-outline-info btn-sm ml-sm-2" [popoverTitle]="popTitle"
+                    [ngbPopover]="popContent" placement="right">?</button>
+            <ng-template #popTitle>
+              <h4>Activity Type</h4>
+            </ng-template>
+            <ng-template #popContent>
+              These buttons specify the type of <strong class="text-primary text-uppercase">activity</strong>
+            </ng-template>
+
           </div>
         </div>
 
