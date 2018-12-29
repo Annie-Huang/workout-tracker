@@ -14,12 +14,14 @@
               <!--<option value="run">Run</option>-->
               <!--<option value="row">Row</option>-->
             <!--</select>-->
-          <div class="btn-group btn-group-toggle" ngbRadioGroup name="wtype" [(ngModel)]="workout.type">
-            <label ngbButtonLabel class="btn-primary"><input ngbButton type="radio" value="bike">Bike</label>
-            <label ngbButtonLabel class="btn-primary"><input ngbButton type="radio" value="run">Run</label>
-            <label ngbButtonLabel class="btn-primary"><input ngbButton type="radio" value="row">Row</label>
-          </div>
+            <div class="btn-group btn-group-toggle" ngbRadioGroup name="wtype" [(ngModel)]="workout.type">
+              <label ngbButtonLabel class="btn-primary"><input ngbButton type="radio" value="bike">Bike</label>
+              <label ngbButtonLabel class="btn-primary"><input ngbButton type="radio" value="run">Run</label>
+              <label ngbButtonLabel class="btn-primary"><input ngbButton type="radio" value="row">Row</label>
+            </div>
 
+            <button class="btn btn-outline-info btn-sm ml-sm-2" popoverTitle="Activity Type"
+                    ngbPopover="These buttons specify the type of activity">?</button>
           </div>
         </div>
 
