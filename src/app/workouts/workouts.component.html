@@ -32,7 +32,8 @@
         Log a new <strong class="text-primary text-uppercase">workout</strong> into your list
       </ng-template>
 
-      <button class="btn btn-success" ngbTooltip="This is just a test" triggers="click:blur">
+      <button class="btn btn-success" ngbTooltip="This is just a test" triggers="manual"
+              #t="ngbTooltip" (click)="t.open()" [autoClose]="'inside'">
         Tooltip Test
       </button>
     </h3>
