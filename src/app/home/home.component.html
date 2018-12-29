@@ -6,12 +6,15 @@
       Welcome to Workout Tracker!
     </p>
 
-    <div ngbDropdown>
-      <button class="btn btn-primary" ngbDropdownToggle>Navigation</button>
-      <div ngbDropdownMenu>
-        <button class="dropdown-item">Home</button>
-        <button class="dropdown-item">Workouts</button>
-        <button class="dropdown-item">Admin</button>
+    <div class="btn-group">
+      <button class="btn btn-primary">Navigation</button>
+      <div class="btn-group" ngbDropdown>
+        <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+        <div ngbDropdownMenu>
+          <button class="dropdown-item">Home</button>
+          <button class="dropdown-item">Workouts</button>
+          <button class="dropdown-item">Admin</button>
+        </div>
       </div>
     </div>
 
