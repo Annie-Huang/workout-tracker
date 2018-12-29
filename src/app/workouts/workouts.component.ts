@@ -12,8 +12,8 @@ import {PerformanceTargetsModalComponent} from '../performance-targets-modal/per
   encapsulation: ViewEncapsulation.None // This makes the style available in the child component, the tooltip.
 })
 export class WorkoutsComponent implements OnInit {
+  // public workoutsOrig = [];
   public workouts = [];
-  public workoutsOrig = [];
   public loading = false;
   public perfTargets = {};
   public totals = {};
@@ -29,12 +29,21 @@ export class WorkoutsComponent implements OnInit {
     //   this.loading = false;
     // });
     forkJoin(
-      this.api.getWorkouts(),
+      // // Client side
+      // this.api.getWorkouts(),
+
+      // Server side
+      this.api.getWorkoutsPaged(this.currPage, this.pageSize),
+
       this.api.getPerfTargets()
     ).subscribe(([workoutsResult, perfTargetsResult]) => {
-      // this.workouts = workoutsResult;
-      this.workoutsOrig = workoutsResult;
-      this.refreshGrid();
+      // // Client side
+      // this.workoutsOrig = workoutsResult;
+      // this.refreshGrid();
+
+      // Server side
+      this.workouts = workoutsResult;
+
 
       this.perfTargets = perfTargetsResult;
       this.calculatePerformance();
@@ -43,10 +52,16 @@ export class WorkoutsComponent implements OnInit {
     });
   }
 
-  // Client side filter.
+  // // Client side pagination.
+  // refreshGrid() {
+  //   const offset = (this.currPage - 1) * this.pageSize;
+  //   this.workouts = _.drop(this.workoutsOrig, offset).slice(0, this.pageSize);
+  // }
+
+  // Server side pagination.
+  // This is triggered by html page.
   refreshGrid() {
-    const offset = (this.currPage - 1) * this.pageSize;
-    this.workouts = _.drop(this.workoutsOrig, offset).slice(0, this.pageSize);
+    this.api.getWorkoutsPaged(this.currPage, this.pageSize).subscribe(data => this.workouts = data);
   }
 
   // deleteWorkout(id) {
