@@ -27,7 +27,7 @@
     <h3 class="card-header">
       Workout Entries
       <a [routerLink]="['/workouts', 'new']" class="btn btn-sm btn-primary float-right"
-         [ngbTooltip]="ttContent" placement="left">Add New Entry</a>
+         [ngbTooltip]="ttContent" placement="left" tooltipClass="custom-tooltip">Add New Entry</a>
       <ng-template #ttContent>
         Log a new <strong class="text-primary text-uppercase">workout</strong> into your list
       </ng-template>
