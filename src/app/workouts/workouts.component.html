@@ -19,10 +19,9 @@
       </div>
 
       <hr />
-      <p>
-        <ngb-progressbar [value]="100" showValue="true"></ngb-progressbar>
-      </p>
-      <p>
+      <p><ngb-progressbar [value]="totals.bike" [max]="perfTargets.bike" showValue="true"></ngb-progressbar></p>
+      <p><ngb-progressbar [value]="totals.row" [max]="perfTargets.row" showValue="true"></ngb-progressbar></p>
+      <p><ngb-progressbar [value]="totals.run" [max]="perfTargets.run" showValue="true"></ngb-progressbar></p>
 
     </div>
   </div>
