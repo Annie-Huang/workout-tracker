@@ -15,9 +15,9 @@ export class WorkoutsComponent implements OnInit {
   public workouts = [];
   public loading = false;
   public perfTargets = {};
+  public totals = {};
 
   constructor(private api: WorkoutsApiService, private modal: NgbModal) { }
-
 
   ngOnInit() {
     // this.loading = true;
@@ -31,6 +31,7 @@ export class WorkoutsComponent implements OnInit {
     ).subscribe(([workoutsResult, perfTargetsResult]) => {
       this.workouts = workoutsResult;
       this.perfTargets = perfTargetsResult;
+      this.calculatePerformance();
       this.loading = false;
       console.log('**workouts', this.workouts, this.perfTargets);
     });
@@ -59,5 +60,13 @@ export class WorkoutsComponent implements OnInit {
     }, reason => {
       console.log(`Dismissed reason: ${reason}`);
     });
+  }
+
+  calculatePerformance() {
+    const bikeTotal = _.chain(this.workouts).filter(x => x.type === 'bike').sumBy(x => +x.distance).value();
+    const rowTotal = _.chain(this.workouts).filter(x => x.type === 'row').sumBy(x => +x.distance).value();
+    const runTotal = _.chain(this.workouts).filter(x => x.type === 'run').sumBy(x => +x.distance).value();
+    this.totals = { bike: bikeTotal, row: rowTotal, run: runTotal };
+    console.log('**totals', this.totals);
   }
 }
