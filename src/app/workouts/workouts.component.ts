@@ -16,6 +16,7 @@ export class WorkoutsComponent implements OnInit {
   public loading = false;
   public perfTargets = {};
   public totals = {};
+  public pageSize = 5;
 
   constructor(private api: WorkoutsApiService, private modal: NgbModal) { }
 
