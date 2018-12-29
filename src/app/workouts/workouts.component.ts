@@ -13,10 +13,12 @@ import {PerformanceTargetsModalComponent} from '../performance-targets-modal/per
 })
 export class WorkoutsComponent implements OnInit {
   public workouts = [];
+  public workoutsOrig = [];
   public loading = false;
   public perfTargets = {};
   public totals = {};
   public pageSize = 5;
+  public currPage = 1;
 
   constructor(private api: WorkoutsApiService, private modal: NgbModal) { }
 
@@ -30,12 +32,21 @@ export class WorkoutsComponent implements OnInit {
       this.api.getWorkouts(),
       this.api.getPerfTargets()
     ).subscribe(([workoutsResult, perfTargetsResult]) => {
-      this.workouts = workoutsResult;
+      // this.workouts = workoutsResult;
+      this.workoutsOrig = workoutsResult;
+      this.refreshGrid();
+
       this.perfTargets = perfTargetsResult;
       this.calculatePerformance();
       this.loading = false;
       console.log('**workouts', this.workouts, this.perfTargets);
     });
+  }
+
+  // Client side filter.
+  refreshGrid() {
+    const offset = (this.currPage - 1) * this.pageSize;
+    this.workouts = _.drop(this.workoutsOrig, offset).slice(0, this.pageSize);
   }
 
   // deleteWorkout(id) {
