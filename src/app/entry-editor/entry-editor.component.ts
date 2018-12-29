@@ -75,4 +75,8 @@ export class EntryEditorComponent implements OnInit {
       this.nav.navigate(['/workouts']);
     });
   }
+
+  popVisibilityChanged(pop) {
+    console.log(`Popover open state: ${pop.isOpen()}`);
+  }
 }
